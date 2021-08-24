@@ -91,8 +91,8 @@ class CategoriesController extends Controller
     }
 
     function delete($id){
-        $brand = Categories::find($id);
-        $brand->delete();
+        $category = Categories::find($id);
+        $category->delete();
         return redirect('/categories')->with('success', 'Category deleted.');
     }
 }
