@@ -172,6 +172,12 @@
                       Categories
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/invoice">
+                      <span data-feather="shopping-cart"></span>
+                      Facturas
+                    </a>
+                </li>
               </ul>
             </div>
           </nav>

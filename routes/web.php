@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PersonaController;
@@ -71,6 +72,7 @@ Route::get('/product/delete/{id}', [ProductController::class , 'delete'])->name(
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::get('/invoice', [InvoiceController::class, 'show']);
 
 Route::get('file-import-export', [ProductController::class, 'fileImportExport']);
 Route::get('file-export', [ProductController::class, 'fileExport'])->name('file-export');
