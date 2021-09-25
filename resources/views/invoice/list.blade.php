@@ -3,8 +3,8 @@
 @section('encabezado', 'Lista de facturas')
 @section('content')
     {{-- <a class="btn btn-info" style="float: right; margin-top: 20px; margin-bottom: 35px;" href="{{ route('product.form') }}}">Nuevo Producto</a> --}}
-    <a class="btn btn-info" style="float: right; margin-top: 20px; margin-bottom: 35px;" href="{{-- {{ route('brand.create') }} --}}">Nueva
-        Marca</a>
+    <a class="btn btn-info" style="float: right; margin-top: 20px; margin-bottom: 35px;" href="{{ route('invoice.create') }}">Nueva
+        Factura</a>
 
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
@@ -45,7 +45,7 @@
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Invoice # {{ $invoice->id }}</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Invoice Detail # {{ $invoice->id }}</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Close"></button>
                             </div>
@@ -69,6 +69,11 @@
                                     <div class="col-sm-6"></div>
                                     <div class="col-sm-3">Subtotal:</div>
                                     <div class="col-sm-3">{{ $invoice->subtotal }}</div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6"></div>
+                                    <div class="col-sm-3">IVA:</div>
+                                    <div class="col-sm-3">{{ number_format($invoice->total-$invoice->subtotal, 0, ',', '.') }}</div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-6"></div>

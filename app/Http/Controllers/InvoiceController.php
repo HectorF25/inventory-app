@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Invoice;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
@@ -41,9 +42,15 @@ class InvoiceController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id = NULL)
     {
-        //
+        if($id==NULL){
+            $invoice = new Invoice();
+        }else{
+            $invoice = Invoice::findOrFail($id);
+        }
+        $products = Product::all();
+        return view('invoice/create', ['invoice' => $invoice, 'products' => $products]);
     }
 
     /**

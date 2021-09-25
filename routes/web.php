@@ -73,6 +73,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/invoice', [InvoiceController::class, 'show']);
+Route::get('/invoice/create/{id?}', [InvoiceController::class , 'create'])->name('invoice.create');
 
 Route::get('file-import-export', [ProductController::class, 'fileImportExport']);
 Route::get('file-export', [ProductController::class, 'fileExport'])->name('file-export');
